@@ -5,8 +5,6 @@ const cors           = require('cors');
 const session        = require('express-session')
 require('./db/db');
 
-
-
 const corsOptions = {
     origin: 'http://localhost:3000',
     credentials: true,
@@ -14,7 +12,6 @@ const corsOptions = {
   }
 
 app.use(cors(corsOptions));
-
 
 app.use(session({
     secret: 'mashed potatoes',
@@ -25,10 +22,10 @@ app.use(session({
 app.use(bodyParser.json());
 
 const authController = require('./Controllers/authController');
-// const userController = require('./Controllers/userController');
+const userController = require('./Controllers/userController');
 
 app.use('/auth', authController);
-// app.use('/users', userController);
+app.use('/users', userController);
 
 
 

@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
       req.session.username = req.body.username;   
       res.json({
         status: 200,
-        data: 'access granted, wilkomen!'
+        data: 'GLORIA!'
       });   
     } catch(err){
       console.log(err);
