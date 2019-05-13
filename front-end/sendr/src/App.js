@@ -1,21 +1,32 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import UserContainer from './UserContainer/UserContainer';
+import AuthGateway from './AuthGateway/AuthGateway';
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      loggedIn: false,
+      currentUser: null
+    }
+  }
+  handleRegister = async (formData) => {
+    console.log(formData);
+  }
+
+
+  render(){
+    return <div className="App">
       <h2>SENDR</h2>
-      Register: <br/>
-      Username: <input type="text" name="username" />
-      Password: <input type="password" name="password" /><br/>
-      Login: <br/>
-      Username: <input type="text" name="username" />
-      Password: <input type="password" name="password" /><br/>
-      <input type="submit" />
+      <AuthGateway />
       <UserContainer />
-    </div>
-  );
+  </div>
+  }
 }
+
+
+
+
 
 export default App;
