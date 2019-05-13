@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require('../Models/user');
 
 
-
 router.get('/', async (req, res, next) => {
     console.log('this is get all current users')
        try  {  
@@ -15,10 +14,10 @@ router.get('/', async (req, res, next) => {
       } catch(err){ 
         res.send(err)  
       }
-  });
+});
 
 
-  router.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
       console.log('new user created');
       const createdUser = await User.create(req.body);
@@ -31,10 +30,10 @@ router.get('/', async (req, res, next) => {
       console.log(err);
       res.send(err);
     }
-  });
+});
 
 
-  router.get('/:id', async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
     try  {
        const foundUser = await User.findById(req.params.id);
        res.json({
@@ -57,10 +56,10 @@ router.put('/:id', async (req, res) => {
     } catch(err){
       res.send(err)
     }
-  });
+});
 
 
-  router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
        const deletedUser = await User.findByIdAndRemove(req.params.id);
         res.json({
@@ -70,10 +69,10 @@ router.put('/:id', async (req, res) => {
     } catch(err){
       res.send(err);
     }
-  });
+});
 
 
 
 
-  
+
 module.exports = router;
