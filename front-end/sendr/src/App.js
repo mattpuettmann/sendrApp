@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import UserContainer from './UserContainer/UserContainer';
 import AuthGateway from './AuthGateway/AuthGateway';
+import {Switch, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(){
@@ -17,11 +18,17 @@ class App extends Component {
 
 
   render(){
-    return <div className="App">
-      <h2>SENDR</h2>
-      <AuthGateway />
-      <UserContainer />
-  </div>
+    return (
+      <div className="App">
+      <h2>SENDR!</h2>
+        {this.state.loggedIn ? 
+        <Switch>
+          <Route exact path="/" component={UserContainer} />
+        </Switch>
+        :
+        <AuthGateway handleRegister={this.handleRegister}/>}
+    </div>
+    )
   }
 }
 
