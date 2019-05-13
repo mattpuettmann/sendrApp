@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../Models/user');
+const bcrypt = require('bcryptjs')
 
 
 router.get('/', async (req, res, next) => {
@@ -21,7 +22,6 @@ router.post('/', async (req, res) => {
     try {
       console.log('new user created');
       const createdUser = await User.create(req.body);
-      console.log('response happening?')
       res.json({
         status: 200,
         data: createdUser
