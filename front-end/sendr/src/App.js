@@ -14,6 +14,16 @@ class App extends Component {
   }
   handleRegister = async (formData) => {
     console.log(formData);
+    const response = await fetch("http://localhost:9000/api/v1/users", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      credentials: 'include',
+      headers: {
+          "Content-Type": "application/json"
+      }
+    })
+    const parsedResponse = await response.json();
+    console.log(parsedResponse);
   }
 
 
