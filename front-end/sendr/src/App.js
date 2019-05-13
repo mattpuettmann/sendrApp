@@ -24,6 +24,12 @@ class App extends Component {
     })
     const parsedResponse = await response.json();
     console.log(parsedResponse);
+    if(parsedResponse.status === 200){
+      this.setState({
+          loggedIn: true,
+          currentUser: parsedResponse.data
+      })
+    }
   }
 
 
