@@ -20,8 +20,8 @@ class RegistrationForm extends Component {
     render(){
         return(
             <form onSubmit={this.handleSubmit}>
-                  Username: <input onChange={this.handleChange} type="text" name="username"/><br/>                 
-                  Password: <input onChange={this.handleChange} type="password" name="password"/><br/>
+                  Username: <input onChange={this.handleChange} type="text" name="username"/>                
+                  Password: <input onChange={this.handleChange} type="password" name="password"/>
                   <input type="submit"/>
             </form>
         )

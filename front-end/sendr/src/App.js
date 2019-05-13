@@ -4,17 +4,18 @@ import UserContainer from './UserContainer/UserContainer';
 import AuthGateway from './AuthGateway/AuthGateway';
 import {Switch, Route, Link } from 'react-router-dom';
 
+
 class App extends Component {
   constructor(){
     super();
     this.state = {
       loggedIn: false,
-      currentUser: null
+      username: null
     }
   }
   handleRegister = async (formData) => {
     console.log(formData);
-    const response = await fetch("http://localhost:9000/api/v1/users", {
+    const response = await fetch("http://localhost:9000/auth/register", {
       method: "POST",
       body: JSON.stringify(formData),
       credentials: 'include',
@@ -27,22 +28,53 @@ class App extends Component {
     if(parsedResponse.status === 200){
       this.setState({
           loggedIn: true,
-          currentUser: parsedResponse.data
+          username: parsedResponse.data.username
       })
     }
   }
+  handleLogin = async (formData) => {
+    console.log('login route hit');
+    console.log(formData);
+    try{
+      const loginResponse = await fetch("http://localhost:9000/auth/login", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      
+      const parsedLoginResponse = await loginResponse.json();
+      console.log(parsedLoginResponse, 'app js parsed login response');
+      const temp = parsedLoginResponse.data[0].username
+      if(parsedLoginResponse.status === 200){
+        this.setState({
+          loggedIn: true,
+          username: temp
+        })
+      }
+
+    }catch(err){
+      console.log(err);
+    }
+
+  }
+
+  
 
 
   render(){
+    console.log(this.state, 'app js')
     return (
       <div className="App">
       <h2>SENDR!</h2>
         {this.state.loggedIn ? 
         <Switch>
-          <Route exact path="/" component={UserContainer} />
+          <Route exact path="/" render={(props) => <UserContainer username={this.state.username}/>} />
         </Switch>
         :
-        <AuthGateway handleRegister={this.handleRegister}/>}
+        <AuthGateway handleRegister={this.handleRegister}  handleLogin={this.handleLogin}/>}
     </div>
     )
   }
