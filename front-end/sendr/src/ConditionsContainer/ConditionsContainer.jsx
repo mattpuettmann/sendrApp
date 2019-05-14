@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SnowContainer from './SnowContainer/SnowContainer';
 import PatioContainer from './PatioContainer/PatioContainer';
+import HikeContainer from './HikeContainer/HikeContainer';
 
 class ConditionsContainer extends Component {
     constructor(){
@@ -22,7 +23,7 @@ class ConditionsContainer extends Component {
             outlook: parsedResult.daily.summary,
             restOfDay: parsedResult.hourly.summary
         })
-        if(this.temperature > 85){
+        if(this.state.temperature > 70){
             console.log('above 85')
             this.setState({
                 rec: 'find a patio'
@@ -35,7 +36,7 @@ class ConditionsContainer extends Component {
         }
     }
     render(){
-        return( <div>
+        return <div>
             <h2>Local Temperature: {this.state.temperature} °F</h2>
             <h4>Current Conditions: {this.state.summary}</h4>
             <h4>Rest of the day: {this.state.restOfDay}</h4>
@@ -46,17 +47,14 @@ class ConditionsContainer extends Component {
             }
             <h4>Outlook for the week: {this.state.outlook}</h4>
             <h1>SENDR SAYS: {this.state.rec}</h1>
-
-            {this.state.temperature && this.state.temperature > 70 ?
-            <PatioContainer />
-            :
-            <SnowContainer />
-            }
-
-
-            
-            
-        </div>)
+                {this.state.temperature && this.state.temperature > 70 ?
+                <PatioContainer />
+                : this.state.temperature > 50 ?
+                <HikeContainer />            
+                :   
+                <SnowContainer />         
+                }   
+        </div>
     }
 }
 

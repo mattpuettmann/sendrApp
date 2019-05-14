@@ -12,7 +12,8 @@ class SnowContainer extends Component {
   }
   render() {
     return (
-      <div style={{ height: '600px', width: 'auto' }}>     
+      <div style={{ height: '600px', width: 'auto' }}> 
+      <small>snow map</small>    
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyDrIbIKBD3WPDwHWhiq7i9yaOEJp-C8xi4'}}
           defaultCenter={this.props.center}
