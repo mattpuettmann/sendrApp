@@ -16,16 +16,18 @@ class ConditionsContainer extends Component {
         const parsedResult = await result.json();
         console.log(parsedResult);
         this.setState({
-            temperature: parsedResult.currently.temperature
+            temperature: parsedResult.currently.temperature,
+            summary: parsedResult.minutely.summary,
+            precip: parsedResult.currently.precipProbability
         })
     }
 
 
     render(){
         return <div>
-            <h3>Current Conditions:</h3>
+            <h3>Current Conditions: {this.state.summary}</h3>
             <h4>Local Temperature: {this.state.temperature} °F</h4>
-
+            <h4>Chance of Rain: {this.state.precip}%</h4>
         </div>
     }
 }
