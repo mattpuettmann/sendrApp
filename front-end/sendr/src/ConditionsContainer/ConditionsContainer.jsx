@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SnowContainer from './SnowContainer/SnowContainer';
 
 class ConditionsContainer extends Component {
     constructor(){
@@ -8,7 +9,6 @@ class ConditionsContainer extends Component {
         }
     }
     componentDidMount(){
-        console.log('COMPONENT DID MOUNT HOOOORAY');
         this.showLocalConditions();
     }
     showLocalConditions = async () => {
@@ -18,7 +18,8 @@ class ConditionsContainer extends Component {
             temperature: parsedResult.currently.temperature,
             summary: parsedResult.minutely.summary,
             precip: parsedResult.currently.precipProbability,
-            outlook: parsedResult.daily.summary
+            outlook: parsedResult.daily.summary,
+            restOfDay: parsedResult.hourly.summary
         })
         if(this.temperature > 85){
             console.log('above 85')
@@ -32,15 +33,20 @@ class ConditionsContainer extends Component {
             })
         }
     }
-
     render(){
-        return <div>
-            <h3>Current Conditions: {this.state.summary}</h3>
-            <h4>Local Temperature: {this.state.temperature} °F</h4>
+        return( <div>
+            <h2>Local Temperature: {this.state.temperature} °F</h2>
+            <h4>Current Conditions: {this.state.summary}</h4>
+            <h4>Rest of the day: {this.state.restOfDay}</h4>
+            {this.state.precip && this.state.precip > 10 ? 
             <h4>Chance of Precip: {this.state.precip}%</h4>
+            :
+            null
+            }
             <h4>Outlook for the week: {this.state.outlook}</h4>
-            <h2>SENDR SAYS: {this.state.rec}</h2>
-        </div>
+            <h1>SENDR SAYS: {this.state.rec}</h1>
+            <SnowContainer></SnowContainer>
+        </div>)
     }
 }
 

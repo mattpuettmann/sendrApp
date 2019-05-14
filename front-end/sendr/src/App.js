@@ -47,7 +47,6 @@ class App extends Component {
         }
       })     
       const parsedLoginResponse = await loginResponse.json();
-      console.log(parsedLoginResponse, 'app js parsed login response');
       const temp = parsedLoginResponse.data.username
       if(parsedLoginResponse.status === 200){
         this.setState({
@@ -67,8 +66,6 @@ class App extends Component {
         const logoutResponse = await fetch("http://localhost:9000/auth/logout", {
             method: "PUT",
           })
-          console.log(logoutResponse);
-
           if(logoutResponse.status === 200){
             this.setState({
               loggedIn: false
@@ -77,9 +74,9 @@ class App extends Component {
     }catch(err){
       console.log(err);
     }
-}
+  }
   render(){
-    console.log(this.state, 'app js')
+    console.log(this.state)
     return (
       <div className="App">
       <h2>SENDR!</h2>
