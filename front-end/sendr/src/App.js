@@ -3,6 +3,7 @@ import './App.css';
 import UserContainer from './UserContainer/UserContainer';
 import AuthGateway from './AuthGateway/AuthGateway';
 import {Switch, Route, Link } from 'react-router-dom';
+import EditContainer from './EditContainer/EditContainer';
 
 
 class App extends Component {
@@ -83,7 +84,8 @@ class App extends Component {
         {this.state.loggedIn ? 
         <Switch>
           <Route exact path="/" render={(props) => 
-          <UserContainer username={this.state.username} handleLogout = {this.handleLogout}/>} />
+            <UserContainer username={this.state.username} handleLogout = {this.handleLogout}/>} />
+          <Route exact path="/edit" component={EditContainer}></Route>
         </Switch>
         :
         <AuthGateway handleRegister={this.handleRegister}  handleLogin={this.handleLogin}/>}

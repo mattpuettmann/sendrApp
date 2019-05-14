@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 import ConditionsContainer from '../ConditionsContainer/ConditionsContainer';
 
 class UserContainer extends Component {
@@ -11,6 +12,8 @@ class UserContainer extends Component {
             console.log('editing time!');
             this.setState({
                 [e.target.name]: e.target.value
+
+                
             })
         }catch(err){
             console.log(err);
@@ -20,7 +23,7 @@ class UserContainer extends Component {
         return <div>
             <h3>SENDR User Container</h3>
             <h5>Hello, {this.props.username}!</h5>
-            <button onClick={this.handleEdit}>Edit</button>
+            <Link to="/edit">Edit</Link>
             <button onClick={this.props.handleLogout}>Logout</button>
             <ConditionsContainer />
         </div>
