@@ -29,17 +29,40 @@ router.post("/login", async (req, res) => {
     try{
         console.log('login route hit');
         console.log(req.body);
-        const user = await User.find({
-            "username": req.body.username
-        })
-        res.json({
-            status: 200,
-            data: user
-        })
+        const user = await User.findOne({"username": req.body.username})
+        if(user){
+            if(bcrypt.compareSync(req.body.password, user.password)){
+                req.session.logged = true;
+                req.session.usersDbId = user._id;
+                req.session.username = user.username;
+                res.json({
+                    status: 200,
+                    data: user
+                })
+            } else {
+                req.session.message = 'username or password is incorrect';
+                res.redirect('/');
+            }
+        } else {
+            req.session.message = 'username or password is incorrect';
+            res.redirect('/');
+        }
+        
 
     }catch(err){
         console.log(err);
     }
+})
+
+router.put("/logout", async (req, res) => {
+    req.session.destroy((err) => {
+        if(err){
+          res.send(err);
+        } else {
+            res.send('happy');
+          console.log('logout should be working');
+        }
+      })
 })
 
 
