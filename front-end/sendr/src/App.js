@@ -43,27 +43,38 @@ class App extends Component {
         headers: {
           "Content-Type": "application/json"
         }
-      })
-      
+      })     
       const parsedLoginResponse = await loginResponse.json();
       console.log(parsedLoginResponse, 'app js parsed login response');
-      const temp = parsedLoginResponse.data[0].username
+      const temp = parsedLoginResponse.data.username
       if(parsedLoginResponse.status === 200){
         this.setState({
           loggedIn: true,
           username: temp
         })
       }
-
     }catch(err){
       console.log(err);
     }
-
   }
 
-  
+  handleLogout = async () => {
+    console.log('logout?')
+    try{
+        const logoutResponse = await fetch("http://localhost:9000/auth/logout", {
+            method: "PUT",
+          })
+          console.log(logoutResponse);
 
-
+          if(logoutResponse.status === 200){
+            this.setState({
+              loggedIn: false
+            })
+          }
+    }catch(err){
+      console.log(err);
+    }
+}
   render(){
     console.log(this.state, 'app js')
     return (
@@ -71,7 +82,8 @@ class App extends Component {
       <h2>SENDR!</h2>
         {this.state.loggedIn ? 
         <Switch>
-          <Route exact path="/" render={(props) => <UserContainer username={this.state.username}/>} />
+          <Route exact path="/" render={(props) => 
+          <UserContainer username={this.state.username} handleLogout = {this.handleLogout}/>} />
         </Switch>
         :
         <AuthGateway handleRegister={this.handleRegister}  handleLogin={this.handleLogin}/>}
