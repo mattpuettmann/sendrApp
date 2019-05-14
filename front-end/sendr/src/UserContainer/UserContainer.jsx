@@ -23,8 +23,9 @@ class UserContainer extends Component {
         return <div>
             <h3>SENDR User Container</h3>
             <h5>Hello, {this.props.username}!</h5>
-            <Link to="/edit">Edit</Link>
+            <Link to="/edit">Edit</Link><br/>
             <button onClick={this.props.handleLogout}>Logout</button>
+            <h5>The local conditions in {this.props.location}</h5>
             <ConditionsContainer />
         </div>
     }

@@ -29,7 +29,8 @@ class App extends Component {
     if(parsedResponse.status === 200){
       this.setState({
           loggedIn: true,
-          username: parsedResponse.data.username
+          username: parsedResponse.data.username,
+          location: parsedResponse.data.location
       })
     }
   }
@@ -84,7 +85,7 @@ class App extends Component {
         {this.state.loggedIn ? 
         <Switch>
           <Route exact path="/" render={(props) => 
-            <UserContainer username={this.state.username} handleLogout = {this.handleLogout}/>} />
+            <UserContainer username={this.state.username} location={this.state.location} handleLogout={this.handleLogout}/>} />
           <Route exact path="/edit" component={EditContainer}></Route>
         </Switch>
         :

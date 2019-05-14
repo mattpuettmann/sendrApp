@@ -9,7 +9,7 @@ class ConditionsContainer extends Component {
     }
     render(){
         return <div>
-            <h3>Conditions Data</h3>
+            <h3>Conditions Data will go here.</h3>
         </div>
     }
 }
