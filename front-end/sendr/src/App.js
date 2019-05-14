@@ -52,7 +52,8 @@ class App extends Component {
       if(parsedLoginResponse.status === 200){
         this.setState({
           loggedIn: true,
-          username: temp
+          username: parsedLoginResponse.data.username,
+          location: parsedLoginResponse.data.location
         })
       }
     }catch(err){

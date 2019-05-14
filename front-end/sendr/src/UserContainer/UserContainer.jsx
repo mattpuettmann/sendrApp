@@ -19,13 +19,16 @@ class UserContainer extends Component {
             console.log(err);
         }
     }
+
+
     render(){
         return <div>
             <h3>SENDR User Container</h3>
             <h5>Hello, {this.props.username}!</h5>
             <Link to="/edit">Edit</Link><br/>
             <button onClick={this.props.handleLogout}>Logout</button>
-            <h5>The local conditions in {this.props.location}</h5>
+            <h5>The local temperature in {this.props.location} is:</h5>
+            <h3>TEMPERATURE DATA</h3>
             <ConditionsContainer />
         </div>
     }
