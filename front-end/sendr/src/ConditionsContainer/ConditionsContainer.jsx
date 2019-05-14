@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SnowContainer from './SnowContainer/SnowContainer';
+import PatioContainer from './PatioContainer/PatioContainer';
 
 class ConditionsContainer extends Component {
     constructor(){
@@ -45,7 +46,16 @@ class ConditionsContainer extends Component {
             }
             <h4>Outlook for the week: {this.state.outlook}</h4>
             <h1>SENDR SAYS: {this.state.rec}</h1>
-            <SnowContainer></SnowContainer>
+
+            {this.state.temperature && this.state.temperature > 70 ?
+            <PatioContainer />
+            :
+            <SnowContainer />
+            }
+
+
+            
+            
         </div>)
     }
 }

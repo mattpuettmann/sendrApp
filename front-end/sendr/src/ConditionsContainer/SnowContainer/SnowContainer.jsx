@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
 
-// const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class SnowContainer extends Component {
   static defaultProps = {
@@ -10,8 +9,7 @@ class SnowContainer extends Component {
       lng: -104.991531
     },
     zoom: 7
-  };
-
+  }
   render() {
     return (
       <div style={{ height: '600px', width: 'auto' }}>     
@@ -22,7 +20,7 @@ class SnowContainer extends Component {
         >
         </GoogleMapReact>
       </div>
-    );
+    )
   }
 }
 
