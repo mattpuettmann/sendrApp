@@ -5,7 +5,8 @@ class RegistrationForm extends Component {
         super()
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            location: ""
         }
     }
     handleSubmit = (e) => {
@@ -17,9 +18,19 @@ class RegistrationForm extends Component {
             [e.target.name] : e.target.value
         })
     }
+    handleGeo = async () => {
+        const result = await fetch('https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?address=Denver,+CO&key=AIzaSyDrIbIKBD3WPDwHWhiq7i9yaOEJp-C8xi4')
+        const parsedResult = await result.json();
+        console.log(parsedResult);
+        this.setState({
+            lat: "",
+            long: ""
+        })
+
+    }
     render(){
         return <div>
-            <h2>Sign Up</h2>
+            <h3>Sign Up</h3>
                 <form onSubmit={this.handleSubmit}>
                     Username: <input onChange={this.handleChange} type="text" name="username"/><br/>              
                     Password: <input onChange={this.handleChange} type="password" name="password"/><br/>

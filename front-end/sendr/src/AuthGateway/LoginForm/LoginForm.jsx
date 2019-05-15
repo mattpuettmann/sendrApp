@@ -19,7 +19,7 @@ class LoginForm extends Component {
     }
     render(){
         return <div>
-            <h2>Login</h2>
+            <h3>Login</h3>
             <form onSubmit={this.handleSubmit}>
             Username: <input onChange={this.handleChange} type="text" name="username"/><br/>             
             Password: <input onChange={this.handleChange} type="password" name="password"/><br/>

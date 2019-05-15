@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import UserContainer from './UserContainer/UserContainer';
 import AuthGateway from './AuthGateway/AuthGateway';
 import {Switch, Route, Link } from 'react-router-dom';
@@ -45,7 +46,7 @@ class App extends Component {
         headers: {
           "Content-Type": "application/json"
         }
-      })     
+      })    
       const parsedLoginResponse = await loginResponse.json();
       const temp = parsedLoginResponse.data.username
       if(parsedLoginResponse.status === 200){
@@ -79,7 +80,7 @@ class App extends Component {
     console.log(this.state)
     return (
       <div className="App">
-      <h2>SENDR!</h2>
+      <h2>SENDR</h2>
         {this.state.loggedIn ? 
         <Switch>
           <Route exact path="/" render={(props) => 

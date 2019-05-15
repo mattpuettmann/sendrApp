@@ -27,7 +27,6 @@ router.post("/register", async (req, res)=>{
 
 router.post("/login", async (req, res) => {
     try{
-        console.log('login route hit');
         console.log(req.body);
         const user = await User.findOne({"username": req.body.username})
         if(user){
@@ -47,8 +46,6 @@ router.post("/login", async (req, res) => {
             req.session.message = 'username or password is incorrect';
             res.redirect('/');
         }
-        
-
     }catch(err){
         console.log(err);
     }
@@ -60,7 +57,6 @@ router.put("/logout", async (req, res) => {
           res.send(err);
         } else {
             res.send('happy');
-          console.log('logout should be working');
         }
       })
 })

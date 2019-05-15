@@ -37,7 +37,7 @@ class ConditionsContainer extends Component {
     }
     render(){
         return <div>
-            <h2>Local Temperature: {this.state.temperature} °F</h2>
+            <h3>Local Temperature: {this.state.temperature} °F</h3>
             <h4>Current Conditions: {this.state.summary}</h4>
             <h4>Rest of the day: {this.state.restOfDay}</h4>
             {this.state.precip && this.state.precip > 10 ? 
