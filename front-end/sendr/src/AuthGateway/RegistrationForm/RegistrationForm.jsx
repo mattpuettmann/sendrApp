@@ -29,7 +29,7 @@ class RegistrationForm extends Component {
 
     }
     render(){
-        return <div>
+        return <div className="homeForm">
             <h3>Sign Up</h3>
                 <form onSubmit={this.handleSubmit}>
                     Username: <input onChange={this.handleChange} type="text" name="username"/><br/>              

@@ -48,7 +48,6 @@ class App extends Component {
         }
       })    
       const parsedLoginResponse = await loginResponse.json();
-      const temp = parsedLoginResponse.data.username
       if(parsedLoginResponse.status === 200){
         this.setState({
           loggedIn: true,
@@ -79,8 +78,8 @@ class App extends Component {
   render(){
     console.log(this.state)
     return (
-      <div className="App">
-      <h2>SENDR</h2>
+      <div className="App" id="main">
+      <h2>Sendr</h2>
         {this.state.loggedIn ? 
         <Switch>
           <Route exact path="/" render={(props) => 

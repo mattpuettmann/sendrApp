@@ -46,7 +46,7 @@ class ConditionsContainer extends Component {
             null
             }
             <h4>Outlook for the week: {this.state.outlook}</h4>
-            <h1>SENDR SAYS: {this.state.rec}</h1>
+            <h1><span className="sendr">Sendr says:</span> {this.state.rec}</h1>
                 {this.state.temperature && this.state.temperature > 70 ?
                 <PatioContainer />
                 : this.state.temperature > 50 ?
