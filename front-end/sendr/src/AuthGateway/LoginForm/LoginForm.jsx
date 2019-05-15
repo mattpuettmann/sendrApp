@@ -5,7 +5,9 @@ class LoginForm extends Component {
         super();
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            lat: "",
+            lng: ""
         }
     }
     handleSubmit = (e) => {

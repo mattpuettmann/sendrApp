@@ -15,13 +15,11 @@ class UserContainer extends Component {
         }
     }
     render(){
-        console.log(this.props);
         return <div className="userInfo">
             <small>Hello, {this.props.username}!</small><br/>
             <Link to="/edit">Edit</Link><br/>
             <button onClick={this.props.handleLogout}>Logout</button>
-            <h5>The current weather in {this.props.location}:</h5>
-            <ConditionsContainer />
+            <ConditionsContainer lat={this.props.lat} lng={this.props.lng} location={this.props.location}/>
         </div>
     }
 }

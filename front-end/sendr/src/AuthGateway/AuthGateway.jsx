@@ -14,8 +14,8 @@ class AuthGateway extends React.Component {
   
   render() {
     return <div>
-        <RegistrationForm handleRegister={this.props.handleRegister}/>
-        <LoginForm handleLogin={this.props.handleLogin}/>
+        <RegistrationForm handleRegister={this.props.handleRegister} handleGeo={this.props.handleGeo}/>
+        <LoginForm handleLogin={this.props.handleLogin} handleGeo={this.props.handleGeo}/>
     </div>     
   }
 }

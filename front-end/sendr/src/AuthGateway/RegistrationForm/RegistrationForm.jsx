@@ -6,28 +6,33 @@ class RegistrationForm extends Component {
         this.state = {
             username: "",
             password: "",
-            location: ""
+            location: "",
+            lat: "",
+            lng: ""
         }
     }
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
+        console.log(this.state, "THIS IS THE STATE IN THE REGISTER");
         e.preventDefault();
         this.props.handleRegister(this.state);
+        this.props.handleGeo(this.state.location);
     }
     handleChange = (e) => {
         this.setState({
             [e.target.name] : e.target.value
         })
     }
-    handleGeo = async () => {
-        const result = await fetch('https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?address=Denver,+CO&key=AIzaSyDrIbIKBD3WPDwHWhiq7i9yaOEJp-C8xi4')
-        const parsedResult = await result.json();
-        console.log(parsedResult);
-        this.setState({
-            lat: "",
-            long: ""
-        })
+    // handleGeo = async () => {
+    //     const result = await fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.location}&key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg`)
+    //     const parsedResult = await result.json();
+    //     console.log(parsedResult.results[0].geometry.bounds.northeast.lat);
+    //     console.log(parsedResult.results[0].geometry.bounds.northeast.lng);
+    //     this.setState({
+    //         lat: parsedResult.results[0].geometry.bounds.northeast.lat,
+    //         lng: parsedResult.results[0].geometry.bounds.northeast.lng
+    //     })
 
-    }
+    // }
     render(){
         return <div className="homeForm">
             <h3>Sign Up</h3>
