@@ -22,17 +22,6 @@ class RegistrationForm extends Component {
             [e.target.name] : e.target.value
         })
     }
-    // handleGeo = async () => {
-    //     const result = await fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.location}&key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg`)
-    //     const parsedResult = await result.json();
-    //     console.log(parsedResult.results[0].geometry.bounds.northeast.lat);
-    //     console.log(parsedResult.results[0].geometry.bounds.northeast.lng);
-    //     this.setState({
-    //         lat: parsedResult.results[0].geometry.bounds.northeast.lat,
-    //         lng: parsedResult.results[0].geometry.bounds.northeast.lng
-    //     })
-
-    // }
     render(){
         return <div className="homeForm">
             <h3>Sign Up</h3>
