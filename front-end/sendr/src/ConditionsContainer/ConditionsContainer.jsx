@@ -54,7 +54,7 @@ class ConditionsContainer extends Component {
                 {this.state.temperature && this.state.temperature > 70 ?
                 <PatioContainer lat={this.props.lat} lng={this.props.lng}/>
                 : this.state.temperature > 50 ?
-                <HikeContainer />            
+                <HikeContainer  lat={this.props.lat} lng={this.props.lng}/>            
                 :   
                 <SnowContainer />         
                 }   

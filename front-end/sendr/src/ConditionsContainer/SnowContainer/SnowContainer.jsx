@@ -3,12 +3,24 @@ import GoogleMapReact from 'google-map-react';
 
 
 class SnowContainer extends Component {
-  static defaultProps = {
-    center: {
-      lat: 39.742043,
-      lng: -104.991531
-    },
-    zoom: 7
+  constructor(){
+    super();
+    this.state = {
+      center: {
+        lat: 39.742043,
+        lng: -104.991531
+      },
+      zoom: 7
+    }
+    console.log(1, this.state.center.lat, this.state.center.lng);
+  }
+  componentDidMount(){
+    this.setState({
+      center: {
+        lat: this.props.lat,
+        lng: this.props.lng
+      }
+    })
   }
   render() {
     return (
