@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../../src/App.css'
 import UserContainer from '../UserContainer/UserContainer';
 import SnowContainer from './SnowContainer/SnowContainer';
 import PatioContainer from './PatioContainer/PatioContainer';
@@ -41,7 +42,7 @@ class ConditionsContainer extends Component {
 
         return <div className="notConditionsContainer">
             
-            <div className="conditionsContainer" style={{position: 'relative'}}>
+            <div className="conditionsContainer" >
             <h5>The current weather in {this.props.location}:</h5>
             <h3>Local Temperature: {this.state.temperature} °F</h3>
             <h4>Current Conditions: {this.state.summary}</h4>

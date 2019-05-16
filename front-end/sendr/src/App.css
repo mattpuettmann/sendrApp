@@ -49,23 +49,29 @@
   align-items: center;  
 } 
 
-/* .conditionsContainer {
+.conditionsContainer {
   text-align: center;
   background-color: black;
   color: white;
   opacity: 0.5;
-  max-width: 500px;
+  width: 35%;
+  margin-right: 10px;
+  
 
 }
 
-.locationMap {
-  max-width: 600px;
+
+
+div.locationMap {
+  width: 35% !important;
   text-align: center;
+  margin-left: 10px;
 
-} */
+}
 
-/* .notConditionsContainer {
+.notConditionsContainer {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-} */
+
+  align-content: center;
+}

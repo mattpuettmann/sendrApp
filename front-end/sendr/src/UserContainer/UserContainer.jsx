@@ -40,13 +40,14 @@ class UserContainer extends Component {
         console.log(this);
         return <div className="userInfo">
             <small>Hello, {this.props.username}!</small><br/>
-            <button onClick={this.showModal}>Edit</button>
-            <button onClick={this.props.handleLogout}>Logout</button>
+            
             {this.state.showModal ?
             <EditContainer username={this.props.username} location={this.props.location} handleEdit={this.handleEdit}/>
             :
             <ConditionsContainer lat={this.props.lat} lng={this.props.lng} location={this.props.location}/>
-            }
+            }<br/>
+            <button onClick={this.showModal}>Edit</button>
+            <button onClick={this.props.handleLogout}>Logout</button>
         </div>
     }
 }

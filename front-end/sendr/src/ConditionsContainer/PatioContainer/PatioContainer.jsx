@@ -28,8 +28,7 @@ class PatioContainer extends Component {
       console.log(this.state)
       console.log(this.props.lat)
       return (
-        <div style={{ height: '600px', width: 'auto' }}>  
-        <small>patio map</small>   
+        <div style={{ height: '600px', width: 'auto' }}>   
           <GoogleMapReact
             bootstrapURLKeys={{ key: 'AIzaSyDrIbIKBD3WPDwHWhiq7i9yaOEJp-C8xi4'}}
             defaultCenter={this.state.center}

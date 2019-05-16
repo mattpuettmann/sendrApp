@@ -39,11 +39,17 @@ router.post("/login", async (req, res) => {
                 })
             } else {
                 req.session.message = 'username or password is incorrect';
-                res.redirect('/');
+                res.json({
+                    status: 500,
+                    data: err
+                })
             }
         } else {
             req.session.message = 'username or password is incorrect';
-            res.redirect('/');
+            res.json({
+                status: 500,
+                data: err
+            })
         }
     }catch(err){
         console.log(err);
