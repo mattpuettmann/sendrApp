@@ -26,10 +26,19 @@ class EditContainer extends Component {
         console.log('handleEdit being hit!!')
         console.log(this.props)
     }
-    handleDelete = (e) => {
+    handleDelete = async (e) => {
         e.preventDefault();
         console.log("Deleting!");
-        
+        try{
+            const result = await fetch(`http://localhost:9000/api/v1/users/me`, {
+                method: "DELETE",
+                credentials: "include"
+            })
+            const parsedResult = await result.json();
+            console.log(parsedResult)
+        }catch(err){
+            console.log(err);
+        }
     }
     render(){
         console.log(this.props);

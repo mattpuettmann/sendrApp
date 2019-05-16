@@ -73,9 +73,12 @@ router.put('/:id', async (req, res) => {
 
 
 
-router.delete('/:id', async (req, res) => {
+router.delete('/me', async (req, res) => {
+    console.log('lols and poops')
+    console.log(req.session);
     try {
-       const deletedUser = await User.findByIdAndRemove(req.params.id);
+       const deletedUser = await User.findByIdAndRemove(req.session.usersDbId);
+       console.log(deletedUser);
         res.json({
           status: 200,
           data: deletedUser
