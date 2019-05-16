@@ -31,8 +31,7 @@ class HikeContainer extends Component {
       console.log(14, shouldRender,this.state.center.lat, this.state.center.lng);
       if (shouldRender) {
         return (
-          <div style={{ height: '600px', width: 'auto' }}>  
-          <small>hike map</small>   
+          <div style={{ height: '400px', width: '352px' }}>    
             <GoogleMapReact
               bootstrapURLKeys={{ key: 'AIzaSyDrIbIKBD3WPDwHWhiq7i9yaOEJp-C8xi4'}}
               defaultCenter={this.state.center}

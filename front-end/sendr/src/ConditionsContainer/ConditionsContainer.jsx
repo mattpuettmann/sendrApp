@@ -39,20 +39,20 @@ class ConditionsContainer extends Component {
         }
     }
     render(){
-
+        console.log(this.state.temperature);
         return <div className="notConditionsContainer">
             
             <div className="conditionsContainer" >
-            <h5>The current weather in {this.props.location}:</h5>
-            <h3>Local Temperature: {this.state.temperature} °F</h3>
-            <h4>Current Conditions: {this.state.summary}</h4>
-            <h4>Rest of the day: {this.state.restOfDay}</h4>
+            <h3>The current weather in {this.props.location}:</h3>
+            <h5>Local Temperature: {this.state.temperature} °F</h5>
+            <h5>Current Conditions: {this.state.summary}</h5>
+            <h5>Rest of the day: {this.state.restOfDay}</h5>
             {this.state.precip && this.state.precip > 10 ? 
-            <h4>Chance of Precip: {this.state.precip}%</h4>
+            <h5>Chance of Precip: {this.state.precip}%</h5>
             :
             null
             }
-            <h1><span className="sendr">Sendr says:</span> {this.state.rec}</h1>
+            <h1><span className="sendr">Sendr says:</span><br/> {this.state.rec}</h1>
             </div>
             
             <div className="locationMap">

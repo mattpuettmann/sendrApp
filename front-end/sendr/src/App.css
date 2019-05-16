@@ -55,17 +55,23 @@
   color: white;
   opacity: 0.5;
   width: 35%;
+  height: 400px;
   margin-right: 10px;
+  padding: 7px;
   
 
 }
 
-
+small {
+  font-family: Pacifico;
+}
 
 div.locationMap {
   width: 35% !important;
+  height: 400px;
   text-align: center;
   margin-left: 10px;
+
 
 }
 
