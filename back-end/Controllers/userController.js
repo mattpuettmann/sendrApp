@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs')
 
 
 router.get('/', async (req, res, next) => {
-    console.log('this is get all current users')
        try  {  
         const allUsers = await User.find();
         res.json({
@@ -20,7 +19,6 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res) => {
     try {
-      console.log('new user created');
       const createdUser = await User.create(req.body);
       res.json({
         status: 200,
@@ -45,6 +43,19 @@ router.get('/:id', async (req, res, next) => {
      }
 });
 
+router.put('/me', async (req, res) => {
+    try {
+      const updatedUser = await User.findByIdAndUpdate(req.session.usersDbId, req.body, {new: true});
+      console.log(updatedUser)
+      res.json({
+        status: 200,
+        data: updatedUser
+      });
+    } catch(err){
+      res.send(err)
+    }
+});
+
 
 router.put('/:id', async (req, res) => {
     try {
@@ -57,6 +68,9 @@ router.put('/:id', async (req, res) => {
       res.send(err)
     }
 });
+
+
+
 
 
 router.delete('/:id', async (req, res) => {
