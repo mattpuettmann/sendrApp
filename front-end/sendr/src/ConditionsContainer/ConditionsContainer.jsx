@@ -39,8 +39,10 @@ class ConditionsContainer extends Component {
     }
     render(){
 
-        return <div>
-            <h5>The current weather in: {this.props.location}</h5>
+        return <div className="notConditionsContainer">
+            
+            <div className="conditionsContainer" style={{position: 'relative'}}>
+            <h5>The current weather in {this.props.location}:</h5>
             <h3>Local Temperature: {this.state.temperature} °F</h3>
             <h4>Current Conditions: {this.state.summary}</h4>
             <h4>Rest of the day: {this.state.restOfDay}</h4>
@@ -49,15 +51,19 @@ class ConditionsContainer extends Component {
             :
             null
             }
-            <h4>Outlook for the week: {this.state.outlook}</h4>
             <h1><span className="sendr">Sendr says:</span> {this.state.rec}</h1>
+            </div>
+            
+            <div className="locationMap">
                 {this.state.temperature && this.state.temperature > 70 ?
                 <PatioContainer lat={this.props.lat} lng={this.props.lng}/>
                 : this.state.temperature > 50 ?
                 <HikeContainer  lat={this.props.lat} lng={this.props.lng}/>            
                 :   
                 <SnowContainer />         
-                }   
+                }  
+                </div>
+               
         </div>
     }
 }

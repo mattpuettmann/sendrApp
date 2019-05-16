@@ -2,6 +2,10 @@
 
 .App {
   text-align: center;
+  background-image: url('https://images.photowall.com/products/44478/sunny-sky.jpg?h=699&q=85');
+  background-size: cover;
+
+
 }
 
 
@@ -11,7 +15,6 @@
   color: white;
   background-color: rgb(134, 134, 134);
   padding: 20px 0;
-  border: black;
 }
 
 /* #main .UserContainer {
@@ -22,6 +25,10 @@
   font-family: Pacifico;
 }
 
+/* .rows .row {
+  display: inline-block;
+} */
+
 /* .userInfo {
   text-align: center;
   max-width: 700px;
@@ -30,4 +37,29 @@
 
 .sendr {
   font-family: Pacifico;
+}
+
+.hikeContainer {
+  max-width: 400px;
+  height: 100vh; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;  
+} 
+
+.conditionsContainer {
+  text-align: center;
+  background-color: black;
+  color: white;
+  opacity: 0.5;
+  max-width: 500px;
+}
+
+.locationMap {
+  max-width: 600px;
+  text-align: center;
+}
+
+.notConditionsContainer {
+
 }

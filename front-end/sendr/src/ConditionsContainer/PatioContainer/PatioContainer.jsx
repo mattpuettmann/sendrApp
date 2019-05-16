@@ -21,6 +21,7 @@ class PatioContainer extends Component {
         }
       })
     }
+    
     render() {
       console.log(this.props.center)
       console.log(this.props)
