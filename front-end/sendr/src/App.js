@@ -99,7 +99,7 @@ class App extends Component {
         {this.state.loggedIn ? 
         <Switch>
           <Route exact path="/" render={(props) => 
-            <UserContainer lat={this.state.lat} lng={this.state.lng} username={this.state.username} location={this.state.location} handleLogout={this.handleLogout}/>} />
+            <UserContainer lat={this.state.lat} lng={this.state.lng} username={this.state.username} loggedIn={this.state.loggedIn} location={this.state.location} handleLogout={this.handleLogout}/>} />
           <Route exact path="/edit" component={EditContainer}></Route>
         </Switch>
         :
